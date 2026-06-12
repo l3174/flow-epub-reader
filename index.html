@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow ePub Reader - 跨平台 ePub 阅读器</title>
+<style>
+  :root {
+    --bg: #0f0f14;
+    --card: #1a1a24;
+    --text: #e4e4ec;
+    --muted: #8888a0;
+    --accent: #7C3AED;
+    --accent2: #4F46E5;
+    --border: #2a2a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 60px 24px; }
+  .hero {
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+  .hero .icon {
+    width: 96px; height: 96px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    margin: 0 auto 32px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 520px; margin: 0 auto; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; background: var(--card); color: var(--accent); border: 1px solid var(--border); margin: 0 4px; }
+  .badges { margin-top: 20px; }
+
+  .section { margin: 60px 0; }
+  .section h2 { font-size: 1.5rem; margin-bottom: 20px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: white;
+  }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--accent); }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+  .feature { padding: 20px; background: var(--card); border-radius: 10px; border: 1px solid var(--border); }
+  .feature .icon { font-size: 28px; margin-bottom: 8px; }
+  .feature h4 { font-size: 0.95rem; margin-bottom: 4px; }
+  .feature p { color: var(--muted); font-size: 0.82rem; }
+
+  footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 60px; }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <div class="icon">&#128218;</div>
+    <h1>Flow ePub Reader</h1>
+    <p>一个免费、开源的跨平台 ePub 电子书阅读器，支持高亮标注、自定义排版、云同步和离线阅读</p>
+    <div class="badges">
+      <span class="badge">PWA 支持</span>
+      <span class="badge">离线可用</span>
+      <span class="badge">开源 AGPL-3.0</span>
+      <span class="badge">多语言</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>下载桌面版</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Windows 安装版</h3>
+        <p>标准安装程序，带开始菜单和桌面快捷方式</p>
+        <a class="btn btn-primary" href="./downloads/Flow-ePub-Reader-1.0.0-Setup.exe" download>&#11015; 下载安装器 (141 MB)</a>
+      </div>
+      <div class="card">
+        <h3>Windows 便携版</h3>
+        <p>无需安装，解压即用，可放在 U 盘随身携带</p>
+        <a class="btn btn-secondary" href="./downloads/Flow-ePub-Reader-1.0.0-portable.exe" download>&#11015; 下载便携版 (141 MB)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>功能特性</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">&#128366;</div>
+        <h4>ePub 支持</h4>
+        <p>完整支持 ePub 2/3 格式，基于 Epub.js 渲染引擎</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#127912;</div>
+        <h4>自定义排版</h4>
+        <p>字体、字号、行间距、页边距、主题配色的完全定制</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#128221;</div>
+        <h4>高亮与标注</h4>
+        <p>多色高亮、笔记注释，数据可导出备份</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#128269;</div>
+        <h4>全文搜索</h4>
+        <p>快速搜索书籍内容，支持图片预览</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#9729;</div>
+        <h4>云同步</h4>
+        <p>支持 Dropbox 同步，跨设备无缝阅读</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#127760;</div>
+        <h4>离线 &amp; PWA</h4>
+        <p>Service Worker 缓存，断网也能阅读。可安装为独立应用</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#128304;</div>
+        <h4>网格布局</h4>
+        <p>书架网格视图，直观管理你的电子书库</p>
+      </div>
+      <div class="feature">
+        <div class="icon">&#127758;</div>
+        <h4>国际化</h4>
+        <p>支持 English、简体中文、日本語、Deutsch</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>在线使用</h2>
+    <p style="color:var(--muted); margin-bottom:16px;">
+      Flow 同时提供 Web 版，在浏览器中直接打开即可阅读。支持 Chrome/Edge PWA 安装。
+    </p>
+    <a class="btn btn-primary" href="https://flowoss.com" target="_blank">&#128279; 访问 flowoss.com</a>
+    <a class="btn btn-secondary" style="margin-left:12px;" href="https://github.com/pacexy/flow" target="_blank">&#128187; 查看源码</a>
+  </div>
+
+  <footer>
+    <p>
+      Flow ePub Reader 基于 <a href="https://github.com/pacexy/flow" target="_blank">pacexy/flow</a> 构建，
+      遵循 <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPL-3.0</a> 开源协议。
+      桌面版由 Proma Agent 打包。
+    </p>
+  </footer>
+</div>
+
+</body>
+</html>
